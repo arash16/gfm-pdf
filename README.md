@@ -1,10 +1,10 @@
-# md-pdf
+# gfm-pdf
 
 A command-line tool that converts Markdown files to PDF with support for math formulas, Mermaid diagrams, and syntax highlighting. Designed for creating single-page PDFs optimized for e-ink devices and technical documentation.
 
-![npm version](https://img.shields.io/npm/v/md-pdf)
-![license](https://img.shields.io/npm/l/md-pdf)
-![downloads](https://img.shields.io/npm/dm/md-pdf)
+![npm version](https://img.shields.io/npm/v/gfm-pdf)
+![license](https://img.shields.io/npm/l/gfm-pdf)
+![downloads](https://img.shields.io/npm/dm/gfm-pdf)
 
 ## Features
 
@@ -23,13 +23,13 @@ A command-line tool that converts Markdown files to PDF with support for math fo
 ### Global Installation (Recommended)
 
 ```bash
-npm install -g md-pdf
+npm install -g gfm-pdf
 ```
 
 ### Local Installation
 
 ```bash
-npm install md-pdf
+npm install gfm-pdf
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ npm install md-pdf
 ### Basic Usage
 
 ```bash
-md-pdf input.md
+gfm-pdf input.md
 ```
 
 This will convert `input.md` to `input.pdf` in the same directory.
@@ -45,13 +45,13 @@ This will convert `input.md` to `input.pdf` in the same directory.
 ### Specify Output File
 
 ```bash
-md-pdf input.md -o output.pdf
+gfm-pdf input.md -o output.pdf
 ```
 
 ### Complete Example
 
 ```bash
-md-pdf document.md \
+gfm-pdf document.md \
   --output ./dist/document.pdf \
   --theme monokai \
   --format A4 \
@@ -189,7 +189,7 @@ blockquote {
 Then use it with:
 
 ```bash
-md-pdf document.md --css custom-styles.css
+gfm-pdf document.md --css custom-styles.css
 ```
 
 ## E-ink Device Optimization
@@ -204,7 +204,7 @@ The tool is specifically designed for e-ink devices with these optimizations:
 ### Recommended Settings for E-ink
 
 ```bash
-md-pdf document.md \
+gfm-pdf document.md \
   --format A4 \
   --margins "1.5cm" \
   --theme github \
@@ -218,7 +218,7 @@ md-pdf document.md \
 Perfect for converting technical docs with code examples, diagrams, and formulas:
 
 ```bash
-md-pdf api-documentation.md \
+gfm-pdf api-documentation.md \
   --output ./docs/api-guide.pdf \
   --theme vs-code-dark \
   --format A4
@@ -229,7 +229,7 @@ md-pdf api-documentation.md \
 Ideal for research papers with mathematical notation:
 
 ```bash
-md-pdf research-paper.md \
+gfm-pdf research-paper.md \
   --output paper.pdf \
   --format Letter \
   --margins "2cm" \
@@ -241,7 +241,7 @@ md-pdf research-paper.md \
 Great for system design documents with Mermaid diagrams:
 
 ```bash
-md-pdf system-design.md \
+gfm-pdf system-design.md \
   --output architecture.pdf \
   --format A3 \
   --verbose
@@ -287,8 +287,8 @@ md-pdf system-design.md \
 ### Building from Source
 
 ```bash
-git clone https://github.com/arash16/md-pdf
-cd md-pdf
+git clone https://github.com/arash16/gfm-pdf
+cd gfm-pdf
 npm install
 npm run build
 ```
@@ -313,8 +313,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- 🐛 [Issue Tracker](https://github.com/arash16/md-pdf/issues)
-- 💬 [Discussions](https://github.com/arash16/md-pdf/discussions)
+- 🐛 [Issue Tracker](https://github.com/arash16/gfm-pdf/issues)
+- 💬 [Discussions](https://github.com/arash16/gfm-pdf/discussions)
 
 ---
 

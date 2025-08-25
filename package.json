@@ -1,14 +1,14 @@
 {
-  "name": "md-pdf",
+  "name": "gfm-pdf",
   "version": "1.0.0",
   "description": "A CLI tool to convert Markdown files to PDF with support for math formulas, Mermaid diagrams, and syntax highlighting",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/arash16/md-pdf.git"
+    "url": "git+ssh://git@github.com/arash16/gfm-pdf.git"
   },
-  "homepage": "https://github.com/arash16/md-pdf#readme",
+  "homepage": "https://github.com/arash16/gfm-pdf#readme",
   "bugs": {
-    "url": "https://github.com/arash16/md-pdf/issues"
+    "url": "https://github.com/arash16/gfm-pdf/issues"
   },
   "author": "Arash Shakery <arash.shakery@gmail.com> (arash16.com)",
   "license": "MIT",
@@ -24,7 +24,7 @@
   ],
   "main": "dist/index.js",
   "bin": {
-    "md-pdf": "./dist/index.js"
+    "gfm-pdf": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",
