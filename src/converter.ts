@@ -6,7 +6,7 @@ import chalk from 'chalk';
 
 export interface ConversionOptions {
   theme?: string;
-  format?: 'A4' | 'A3' | 'A5' | 'Legal' | 'Letter' | 'Tabloid';
+  format?: 'A4' | 'A3' | 'A5' | 'Legal' | 'Letter' | 'Tabloid' | 'Singular';
   margins?: string;
   customCssPath?: string;
   enableMath?: boolean;
@@ -23,7 +23,7 @@ export class MarkdownToPdfConverter {
     this.options = {
       theme: options.theme ?? 'github',
       format: options.format ?? 'A4',
-      margins: options.margins ?? '0',
+      margins: options.margins ?? '1cm',
       customCssPath: options.customCssPath ?? '',
       enableMath: options.enableMath ?? true,
       enableMermaid: options.enableMermaid ?? true,
@@ -133,24 +133,27 @@ export class MarkdownToPdfConverter {
         console.log(chalk.blue('📄 Generating PDF...'));
       }
 
-      // Get the actual content height
-      const contentHeight = await page.evaluate(() => {
-        const { document } = (globalThis as any);
-        const body = document.body;
-        const range = document.createRange();
-        range.selectNodeContents(body);
-        const rect = range.getBoundingClientRect();
-        return rect.height;
-      });
-      
-      // Convert pixels to inches (96 DPI is standard)
-      const heightInInches = (contentHeight / 96) + 'in';
+      let pageHeight: string | number = this.getPageHeight();
+      if (this.options.format === 'Singular') {
+        // Get the actual content height
+        const contentHeight = await page.evaluate(() => {
+          const { document } = (globalThis as any);
+          const body = document.body;
+          const range = document.createRange();
+          range.selectNodeContents(body);
+          const rect = range.getBoundingClientRect();
+          return rect.height;
+        });
+        
+        // Convert pixels to inches (96 DPI is standard)
+        pageHeight = (contentHeight / 96) + 'in';
+      }
 
       // Generate PDF
       const pdfOptions = {
         path: outputPath,
         width: pageWidth,
-        height: heightInInches,
+        height: pageHeight,
         margin: { top: '0', right: '0', bottom: '0', left: '0' },
         printBackground: true,
         preferCSSPageSize: false,
@@ -185,10 +188,26 @@ export class MarkdownToPdfConverter {
       'A5': 5.83,
       'Legal': 8.5,
       'Letter': 8.5,
-      'Tabloid': 11
+      'Tabloid': 11,
+      'Singular': 9,
     };
 
     let widthInches = pageWidthsInches[this.options.format] || pageWidthsInches['A4'];
     return Math.floor(widthInches * 96); // Convert to pixels
+  }
+
+  private getPageHeight(): number {
+    const pageHeightsInches = {
+      'A4': 11.69,
+      'A3': 16.54,
+      'A5': 8.27,
+      'Legal': 14,
+      'Letter': 11,
+      'Tabloid': 17,
+      'Singular': 100,
+    };
+
+    let heightInches = pageHeightsInches[this.options.format] || pageHeightsInches['A4'];
+    return Math.floor(heightInches * 96); // Convert to pixels
   }
 }

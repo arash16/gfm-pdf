@@ -1,6 +1,7 @@
 export interface TemplateOptions {
   title?: string;
   margins?: string;
+  format?: string;
   enableMath?: boolean;
   enableMermaid?: boolean;
   enableSyntaxHighlighting?: boolean;
@@ -53,7 +54,7 @@ export function generateHtmlTemplate(content: string, options: TemplateOptions =
   <style>
     /* Base PDF styles */
     @page {
-      margin: 0;
+      margin: ${options.format !== 'Singular' ? (options.margins ?? '1cm') : '0'};
       padding: 0;
     }
 
@@ -260,7 +261,7 @@ export function generateHtmlTemplate(content: string, options: TemplateOptions =
 
     main {
       padding: 0;
-      margin: ${options.margins ?? '0.5cm'};
+      margin: ${options.format === 'Singular' ? (options.margins ?? '0.5cm') : '0'};
       min-height: auto;
     }
 
