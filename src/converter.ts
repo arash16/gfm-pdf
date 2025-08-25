@@ -1,4 +1,4 @@
-import { chromium, Browser } from 'playwright';
+import { chromium, Browser } from 'playwright-chromium';
 import { readFileSync } from 'fs';
 import { MarkdownProcessor } from './markdown-processor.js';
 import { generateHtmlTemplate, TemplateOptions } from './template.js';

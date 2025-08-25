@@ -1,6 +1,6 @@
 {
   "name": "gfm-pdf",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A CLI tool to convert Markdown files to PDF with support for math formulas, Mermaid diagrams, and syntax highlighting",
   "repository": {
     "type": "git",
@@ -34,7 +34,7 @@
     "build": "tsc",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
-    "postinstall": "playwright install",
+    "postinstall": "PLAYWRIGHT_BROWSERS_TO_INSTALL=chromium playwright install chromium",
     "prepublish": "yarn build",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
@@ -47,7 +47,7 @@
     "chalk": "^5.3.0",
     "commander": "^11.1.0",
     "katex": "0.16.22",
-    "playwright": "^1.40.1",
+    "playwright-chromium": "^1.55.0",
     "rehype-katex": "^7.0.0",
     "rehype-stringify": "^10.0.0",
     "remark": "^15.0.1",

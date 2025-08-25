@@ -41,7 +41,7 @@ Formula in code-blocks:
 
 ```math
 price = \max(unitPrice, 1e18)
-collateralAmount = \frac{nusdAmount \times 10^{decimals}}{price}
+collateralAmount = \frac{usdAmount \times 10^{decimals}}{price}
 ```
 
 ## Code Blocks with Syntax Highlighting
@@ -63,12 +63,12 @@ console.log(fibonacci(10)); // Output: 55
 def quick_sort(arr):
     if len(arr) <= 1:
         return arr
-    
+
     pivot = arr[len(arr) // 2]
     left = [x for x in arr if x < pivot]
     middle = [x for x in arr if x == pivot]
     right = [x for x in arr if x > pivot]
-    
+
     return quick_sort(left) + middle + quick_sort(right)
 
 # Example usage
@@ -79,7 +79,7 @@ print(quick_sort(numbers))
 ### SQL
 
 ```sql
-SELECT 
+SELECT
     users.name,
     COUNT(orders.id) as order_count,
     SUM(orders.total) as total_spent
