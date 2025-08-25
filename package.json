@@ -1,6 +1,6 @@
 {
   "name": "gfm-pdf",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI tool to convert Markdown files to PDF with support for math formulas, Mermaid diagrams, and syntax highlighting",
   "repository": {
     "type": "git",
@@ -23,6 +23,9 @@
     "playwright"
   ],
   "main": "dist/index.js",
+  "files": [
+    "dist/*.js"
+  ],
   "bin": {
     "gfm-pdf": "./dist/index.js"
   },
