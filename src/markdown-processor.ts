@@ -23,15 +23,13 @@ export class MarkdownProcessor {
       enableMath: options.enableMath ?? true,
       enableSyntaxHighlighting: options.enableSyntaxHighlighting ?? true,
       enableMermaid: options.enableMermaid ?? true,
-      syntaxTheme: options.syntaxTheme ?? 'github'
+      syntaxTheme: options.syntaxTheme ?? 'github',
     };
   }
 
   async processMarkdown(markdown: string): Promise<string> {
     const processor: Processor = unified();
-    processor
-      .use(remarkParse)
-      .use(remarkGfm); // GitHub Flavored Markdown support
+    processor.use(remarkParse).use(remarkGfm); // GitHub Flavored Markdown support
 
     // Add math support
     if (this.options.enableMath) {
@@ -40,18 +38,17 @@ export class MarkdownProcessor {
 
     // Add syntax highlighting
     if (this.options.enableSyntaxHighlighting) {
-      // @ts-ignore - remarkPrism has type compatibility issues with unified v11
+      // @ts-expect-error - remarkPrism has type compatibility issues with unified v11
       processor.use(remarkPrism, {
         plugins: [
-          'line-numbers', 
+          'line-numbers',
           // 'show-language',
-        ]
+        ],
       });
     }
 
     // Convert to HTML
-    processor
-      .use(remarkRehype, { allowDangerousHtml: true });
+    processor.use(remarkRehype, { allowDangerousHtml: true });
 
     // Add KaTeX for math rendering
     if (this.options.enableMath) {
@@ -63,8 +60,8 @@ export class MarkdownProcessor {
       processor.use(this.mermaidPlugin);
     }
 
-    processor.use(rehypeStringify, { 
-      allowDangerousHtml: true 
+    processor.use(rehypeStringify, {
+      allowDangerousHtml: true,
     });
 
     const result = await processor.process(markdown);
@@ -91,17 +88,19 @@ export class MarkdownProcessor {
         ) {
           const codeNode = node.children[0];
           const className = codeNode.properties?.className;
-          
+
           if (className && className.includes('language-mermaid')) {
             // Convert code block to mermaid div
             node.tagName = 'div';
             node.properties = {
-              className: ['mermaid']
+              className: ['mermaid'],
             };
-            node.children = [{
-              type: 'text',
-              value: this.extractTextContent(codeNode)
-            }];
+            node.children = [
+              {
+                type: 'text',
+                value: this.extractTextContent(codeNode),
+              },
+            ];
           }
         }
       });
@@ -112,13 +111,13 @@ export class MarkdownProcessor {
     if (node.type === 'text') {
       return node.value || '';
     }
-    
+
     if (node.children && Array.isArray(node.children)) {
       return node.children
         .map((child: any) => this.extractTextContent(child))
         .join('');
     }
-    
+
     return '';
   }
 

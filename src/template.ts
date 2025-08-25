@@ -9,21 +9,27 @@ export interface TemplateOptions {
   syntaxCss?: string;
 }
 
-export function generateHtmlTemplate(content: string, options: TemplateOptions = {}): string {
+export function generateHtmlTemplate(
+  content: string,
+  options: TemplateOptions = {},
+): string {
   const {
     title = 'Markdown to PDF',
     enableMath = true,
     enableMermaid = true,
     enableSyntaxHighlighting = true,
     customCss = '',
-    syntaxCss = ''
+    syntaxCss = '',
   } = options;
 
-  const mathCss = enableMath ? `
+  const mathCss = enableMath
+    ? `
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
-  ` : '';
+  `
+    : '';
 
-  const mermaidScript = enableMermaid ? `
+  const mermaidScript = enableMermaid
+    ? `
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11.0.1/dist/mermaid.min.js"></script>
     <script>
       mermaid.initialize({ 
@@ -32,13 +38,16 @@ export function generateHtmlTemplate(content: string, options: TemplateOptions =
         fontFamily: 'Arial, sans-serif'
       });
     </script>
-  ` : '';
+  `
+    : '';
 
-  const syntaxHighlightingCss = enableSyntaxHighlighting ? `
+  const syntaxHighlightingCss = enableSyntaxHighlighting
+    ? `
     <style>
       ${syntaxCss}
     </style>
-  ` : '';
+  `
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
