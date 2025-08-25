@@ -55,7 +55,7 @@ gfm-pdf document.md \
   --output ./dist/document.pdf \
   --theme monokai \
   --format A4 \
-  --margins "1cm" \
+  --margins "1in" \
   --css ./custom-styles.css \
   --verbose
 ```
@@ -67,7 +67,7 @@ gfm-pdf document.md \
 | `--output <path>` | `-o` | Output PDF file path | `{input}.pdf` |
 | `--theme <theme>` | `-t` | Syntax highlighting theme | `github` |
 | `--format <format>` | `-f` | Page format (A4, A3, Letter, Legal, Singular) | `Singular` |
-| `--margins <margins>` | `-m` | Page margins in CSS format | `0.5cm` |
+| `--margins <margins>` | `-m` | Page margins in CSS format | `1cm` |
 | `--css <path>` | | Custom CSS file path | |
 | `--no-math` | | Disable math formula support | |
 | `--no-mermaid` | | Disable Mermaid diagram support | |
