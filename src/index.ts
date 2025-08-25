@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-import { Command } from 'commander';
 import { readFileSync, existsSync } from 'fs';
 import { resolve, extname } from 'path';
+import { Command } from 'commander';
 import chalk from 'chalk';
+import packageJson from '../package.json';
 import { MarkdownToPdfConverter } from './converter.js';
 
 const program = new Command();
@@ -13,7 +14,7 @@ program
   .description(
     'Convert Markdown files to PDF with support for math formulas, Mermaid diagrams, and syntax highlighting',
   )
-  .version('1.0.0');
+  .version(packageJson.version);
 
 program
   .argument(

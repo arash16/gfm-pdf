@@ -66,24 +66,13 @@ gfm-pdf document.md \
 |--------|-------|-------------|---------|
 | `--output <path>` | `-o` | Output PDF file path | `{input}.pdf` |
 | `--theme <theme>` | `-t` | Syntax highlighting theme | `github` |
-| `--format <format>` | `-f` | Page format (A4, A3, Letter, Legal) | `A3` |
+| `--format <format>` | `-f` | Page format (A4, A3, Letter, Legal, Singular) | `Singular` |
 | `--margins <margins>` | `-m` | Page margins in CSS format | `0.5cm` |
 | `--css <path>` | | Custom CSS file path | |
 | `--no-math` | | Disable math formula support | |
 | `--no-mermaid` | | Disable Mermaid diagram support | |
 | `--no-syntax` | | Disable syntax highlighting | |
 | `--verbose` | `-v` | Enable verbose output | `false` |
-
-### Available Syntax Highlighting Themes
-
-- `github` (default)
-- `monokai`
-- `dracula`
-- `nord`
-- `solarized-light`
-- `solarized-dark`
-- `vs-code-dark`
-- `atom-one-dark`
 
 ## Supported Features
 
@@ -102,7 +91,7 @@ $$
 Math in code blocks:
 ```math
 price = \max(unitPrice, 1e18)
-collateralAmount = \frac{nusdAmount \times 10^{decimals}}{price}
+collateralAmount = \frac{usdAmount \times 10^{decimals}}{price}
 ```
 
 ~~~
@@ -198,7 +187,6 @@ The tool is specifically designed for e-ink devices with these optimizations:
 - **Single-page layout** - No page breaks for continuous reading
 - **High contrast** - Black text on white background
 - **Proper margins** - Comfortable reading spacing
-- **A3 default format** - More content per page
 
 ### Recommended Settings for E-ink
 
