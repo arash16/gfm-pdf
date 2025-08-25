@@ -91,7 +91,7 @@ gfm-pdf document.md \
 
 Supports both inline and display math using KaTeX syntax:
 
-```markdown
+~~~markdown
 Inline math: $E = mc^2$
 
 Display math:
@@ -105,13 +105,13 @@ price = \max(unitPrice, 1e18)
 collateralAmount = \frac{nusdAmount \times 10^{decimals}}{price}
 ```
 
-```
+~~~
 
 ### Mermaid Diagrams
 
 Supports all Mermaid diagram types:
 
-````markdown
+~~~markdown
 ```mermaid
 flowchart TD
     A[Start] --> B{Decision}
@@ -124,14 +124,13 @@ sequenceDiagram
     User->>API: Request
     API-->>User: Response
 ```
-
-````
+~~~
 
 ### Code Syntax Highlighting
 
 Supports 100+ programming languages:
 
-````markdown
+~~~markdown
 ```javascript
 function hello(name) {
   console.log(`Hello, ${name}!`);
@@ -142,7 +141,7 @@ function hello(name) {
 def fibonacci(n):
     return n if n <= 1 else fibonacci(n-1) + fibonacci(n-2)
 ```
-````
+~~~
 
 ### GitHub Flavored Markdown
 
