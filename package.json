@@ -1,6 +1,6 @@
 {
   "name": "gfm-pdf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI tool to convert Markdown files to PDF with support for math formulas, Mermaid diagrams, and syntax highlighting",
   "repository": {
     "type": "git",
